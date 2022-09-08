@@ -3,3 +3,8 @@
 // Uncomment to build for pre 2007 Excel
 //#define XLOPERX XLOPER
 #include "xll/xll/xll.h"
+
+inline double moneyness(double f, double s, double k)
+{
+	return (log(k / f) + s * s / 2) / s;
+}

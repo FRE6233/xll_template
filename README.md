@@ -1,7 +1,7 @@
 # PUT-YOUR-README-HERE
 
 This project gets you up and running with the [xll library](https://github.com/xlladdins/xll.git)
-for creating high performance Excel add-ins written in C++, or C, or any language
+for creating high performance Excel add-ins written in C++, || C, || any language
 that can be called from C.
 
 [Use this template](https://github.com/xlladdins/xll_template/generate) and open in Visual Studio 2019.  

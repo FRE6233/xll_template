@@ -2,7 +2,25 @@
 #include <cmath> // for double tgamma(double)
 #include "xll_template.h"
 
+
+
+
+
 using namespace xll;
+
+AddIn xai_moneynes(
+	Function(XLL_DOUBLE, "xll_moneyness", "MONEYNESS")
+	.Arguments({
+		Arg(XLL_DOUBLE, "f", "is the forwar4d."),
+		Arg(XLL_DOUBLE, "s", "is the vol."),
+		Arg(XLL_DOUBLE, "k", "is the strike.")
+		})
+);
+double WINAPI xll_moneyness(double f, double s, double k)
+{
+#pragma XLLEXPORT
+	return moneyness(f, s, k);
+}
 
 AddIn xai_tgamma(
 	// Return double, C++ name of function, Excel name.
@@ -33,33 +51,3 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-// Press Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
-// See https://xlladdins.github.io/Excel4Macros/
-AddIn xai_macro(
-	// C++ function, Excel name of macro
-	Macro("xll_macro", "XLL.MACRO")
-);
-// Macros must have `int WINAPI (*)(void)` signature.
-int WINAPI xll_macro(void)
-{
-#pragma XLLEXPORT
-	// https://xlladdins.github.io/Excel4Macros/reftext.html
-	// A1 style instead of default R1C1.
-	OPER reftext = Excel(xlfReftext, Excel(xlfActiveCell), OPER(true));
-	// UTF-8 strings can be used.
-	Excel(xlcAlert, OPER("XLL.MACRO called with активный 细胞: ") & reftext);
-
-	return TRUE;
-}
-
-#ifdef _DEBUG
-
-// Create XML documentation and index.html in `$(TargetPath)` folder.
-// Use `xsltproc file.xml -o file.html` to create HTML documentation.
-Auto<Open> xao_template_docs([]() {
-
-	return Documentation("MATH", "Documentation for the xll_template add-in.");
-
-});
-
-#endif // _DEBUG
