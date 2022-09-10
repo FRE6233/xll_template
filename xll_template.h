@@ -40,8 +40,8 @@ inline double normal_cumulant(double s, unsigned int n = 0)
 inline double black_put(double f, double s, double k)
 {
 	double z = moneyness(f, s, k);
-	double N = 0*z; //!!! P(F <= k) = P(X <= z)
-	double Ns = 0*z; //!!! P(Fe^{s^2/2} <= k) = P(X + s <= z) = P(X <= z - s)
+	double N = 0*z; //!!! P(F <= k) = P(Z <= z)
+	double Ns = 0*z; //!!! P(Fe^{s^2/2} <= k) = P(Z + s <= z) = P(Z <= z - s)
 
 	return k * N - f * Ns;
 }

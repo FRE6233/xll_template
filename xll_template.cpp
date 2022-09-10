@@ -18,6 +18,6 @@ double WINAPI xll_moneyness(double f, double s, double k)
 }
 
 //!!! implement xll_normal_pdf as NORMAL.PDF using normal_pdf
-//!!! implement xll_normal_cdf as NORMAL.CDF using normal_pdf
-//!!! implement xll_normal_cumulant as NORMAL.CUMULANT using normal_cumlant
+//!!! implement xll_normal_cdf as NORMAL.CDF using normal_cdf
+//!!! implement xll_normal_cumulant as NORMAL.CUMULANT using normal_cumulant
 //!!! implement xll_black_put as BLACK.PUT using black_put
